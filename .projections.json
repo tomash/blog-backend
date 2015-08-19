@@ -3,6 +3,7 @@
   "emberapp/app/components/*.js": {"type": "component"},
   "emberapp/app/controllers/*.js": {"type": "econtroller"},
   "emberapp/app/models/*.js": {"type": "emodel"},
-  "emberapp/app/router.js": {"type": "router"},
+  "emberapp/app/router.js": {"type": "route"},
+  "emberapp/app/routes/*.js": {"type": "route"},
   "emberapp/app/templates/*.hbs": {"type": "template"}
 }

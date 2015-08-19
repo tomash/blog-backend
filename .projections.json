@@ -1,0 +1,8 @@
+{
+  "emberapp/app/app.js": {"type": "app"},
+  "emberapp/app/components/*.js": {"type": "component"},
+  "emberapp/app/controllers/*.js": {"type": "econtroller"},
+  "emberapp/app/models/*.js": {"type": "emodel"},
+  "emberapp/app/router.js": {"type": "router"},
+  "emberapp/app/templates/*.hbs": {"type": "template"}
+}

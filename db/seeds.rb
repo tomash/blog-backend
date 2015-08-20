@@ -1,5 +1,5 @@
 Post.destroy_all
 
-Post.create title: 'First post title', body: 'First post body'
-Post.create title: 'Second post title', body: 'Second post body'
-Post.create title: 'Third post title', body: 'Third post body'
+10.times do |n|
+  Post.create title: "Post title ##{n}", body: 'Lorem ipsum dolor sit amet. '*10
+end

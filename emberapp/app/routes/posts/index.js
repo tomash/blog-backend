@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       console.log('posts-index-route:createPost', post);
 
       let store = this.get('store');
-      store.createRecord('post', post);
+      store.createRecord('post', post).save();
     }
   }
 });

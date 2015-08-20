@@ -7,8 +7,9 @@ export default Ember.Component.extend({
 
   truncatedContent: Ember.computed('content', 'length', function() {
     let length = this.get('length');
+    let truncateLength = length - '...'.length;
 
-    return this.get('content').slice(0, length);
+    return this.get('content').slice(0, truncateLength) + '...';
   }),
 
   actions: {

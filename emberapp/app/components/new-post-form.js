@@ -10,6 +10,7 @@ export default Ember.Component.extend({
     },
     createPost(post) {
       console.log('new-post-form:createPost', post);
+      this.sendAction('action', post);
     }
   }
 });

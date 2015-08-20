@@ -1,5 +1,5 @@
 <td>{{post.title}}</td>
-<td>{{post.body}}</td>
+<td>{{truncate-with-expand length=50 content=post.body}}</td>
 <td>{{#link-to 'posts.show' post}}Show{{/link-to}}</td>
 <td>Edit link</td>
 <td><button {{action 'destroy' post}}>Destroy</button></td>

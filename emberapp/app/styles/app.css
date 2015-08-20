@@ -1,0 +1,9 @@
+table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.truncated-content button {
+  font-size: 8pt;
+  border: none;
+}

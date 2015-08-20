@@ -1,0 +1,7 @@
+{{#if isExpanded}}
+  {{content}}
+  <button class="small" {{action 'collapse'}}>collapse</button>
+{{else}}
+  {{truncatedContent}}
+  <button class="small" {{action 'expand'}}>expand</button>
+{{/if}}

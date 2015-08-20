@@ -11,3 +11,11 @@ table {
   font-size: 8pt;
   border: none;
 }
+
+.new-post-form {
+  margin: 0 auto;
+}
+.new-post-form input, .new-post-form textarea {
+  width: 300px;
+  margin-bottom: 15px;
+}

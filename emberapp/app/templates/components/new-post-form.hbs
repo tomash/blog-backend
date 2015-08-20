@@ -1,0 +1,17 @@
+{{#if isFormShown}}
+  <form {{action 'savePost' on='submit'}}>
+    <div>
+      {{input value=title required='true' maxlength=titleMaxLength type='text' placeholder='Post title'}}
+    </div>
+
+    <div>
+      {{textarea value=body required='true' maxlength=bodyMaxLength placeholder='Post body'}}
+    </div>
+
+    <div>
+      <button>Create Post</button>
+    </div>
+  </form>
+{{else}}
+  <a href='#' {{action 'showForm'}}>New post</a>
+{{/if}}

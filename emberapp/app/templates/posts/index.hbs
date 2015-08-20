@@ -16,7 +16,7 @@
         <td>{{post.body}}</td>
         <td>{{#link-to 'posts.show' post}}Show{{/link-to}}</td>
         <td>Edit link</td>
-        <td>Destroy link</td>
+        <td><button {{action 'destroy' post}}>Destroy</button></td>
       </tr>
     {{/each}}
   </tbody>

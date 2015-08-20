@@ -19,4 +19,5 @@ cd emberapp && ember server --proxy http://localhost:3000/
 Credentials are:
 
 **Login:** `admin`
+
 **Password:** `password`

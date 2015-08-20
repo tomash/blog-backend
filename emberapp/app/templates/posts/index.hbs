@@ -11,13 +11,7 @@
 
   <tbody>
     {{#each posts as |post|}}
-      <tr>
-        <td>{{post.title}}</td>
-        <td>{{post.body}}</td>
-        <td>{{#link-to 'posts.show' post}}Show{{/link-to}}</td>
-        <td>Edit link</td>
-        <td><button {{action 'destroy' post}}>Destroy</button></td>
-      </tr>
+      {{blog-post-row post=post}}
     {{/each}}
   </tbody>
 </table>

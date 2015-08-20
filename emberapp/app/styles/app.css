@@ -1,3 +1,7 @@
+[data-ember-action] {
+  cursor: pointer;
+}
+
 table {
   width: 80%;
   margin: 0 auto;

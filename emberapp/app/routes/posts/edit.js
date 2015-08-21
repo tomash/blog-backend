@@ -12,13 +12,7 @@ export default Ember.Route.extend({
     updatePost(post) {
       console.log('posts-edit-route:updatePost', post);
 
-      let postRecord = this.get('controller').get('post');
-
-      postRecord.set('title', post.title);
-      postRecord.set('body', post.body);
-      postRecord.save().then(() => {
-        this.transitionTo('posts')
-      });
+      post.save().then(() => this.transitionTo('posts'));
     }
   }
 });

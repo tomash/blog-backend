@@ -5,18 +5,20 @@ export default Ember.Component.extend({
   className: 'truncated-content',
   isExpanded: false,
 
+  isTruncationNeeded: Ember.computed('content', 'length', function() {
+    let length = this.get('length'),
+        content = this.get('content');
+
+    return content.length > length;
+  }),
+
   truncatedContent: Ember.computed('content', 'length', function() {
     let length = this.get('length'),
         content = this.get('content'),
-        ellipsis = '...';
+        ellipsis = '...',
+        truncationLength = length - ellipsis.length;
 
-    if (content.length <= length) {
-      ellipsis = '';
-    }
-
-    let truncateLength = length - ellipsis.length;
-
-    return this.get('content').slice(0, truncateLength) + ellipsis;
+    return content.slice(0, truncationLength) + ellipsis;
   }),
 
   actions: {

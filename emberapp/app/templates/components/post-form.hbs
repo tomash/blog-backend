@@ -9,7 +9,7 @@
   <div>
     <label for="body">Body:</label>
     {{textarea value=post.body required='true' maxlength=bodyMaxLength placeholder='Post body'}}
-
+    <p class="remaining-chars">Remaining chars: {{remainingChars}}</p>
     {{error-list errors=post.errors.body}}
   </div>
 

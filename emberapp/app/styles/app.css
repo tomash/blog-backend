@@ -19,11 +19,13 @@ table {
   width: 300px;
 }
 
-.error {
-  color: red;
+.error, .remaining-chars {
   font-size: 14px;
   width: 300px;
   text-align: right;
+}
+.error {
+  color: red;
 }
 
 form > div {

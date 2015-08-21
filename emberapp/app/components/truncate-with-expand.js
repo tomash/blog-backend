@@ -21,11 +21,11 @@ export default Ember.Component.extend({
 
   actions: {
     expand() {
-      this.set('isExpanded', true)
+      this.set('isExpanded', true);
     },
 
     collapse() {
-      this.set('isExpanded', false)
+      this.set('isExpanded', false);
     }
   }
 });

@@ -12,10 +12,10 @@ table {
   border: none;
 }
 
-.new-post-form {
+.post-form {
   margin: 0 auto;
 }
-.new-post-form input, .new-post-form textarea {
+.post-form input, .post-form textarea {
   width: 300px;
   margin-bottom: 15px;
 }

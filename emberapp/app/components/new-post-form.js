@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isFormShown: true, ////////////////////////////// REMEMBER TO CHANGE IT
-  classNames: ['new-post-form'],
+  classNames: ['post-form'],
 
   actions: {
     showForm() {

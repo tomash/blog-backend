@@ -1,10 +1,20 @@
 <form {{action 'submit' on='submit'}}>
   <div>
+    <label for="title">Title:</label>
     {{input value=post.title required='true' maxlength=titleMaxLength type='text' placeholder='Post title'}}
+
+    {{#each post.errors.title as |error|}}
+      <div class="error">{{error.attribute}} {{error.message}}</div>
+    {{/each}}
   </div>
 
   <div>
+    <label for="body">Body:</label>
     {{textarea value=post.body required='true' maxlength=bodyMaxLength placeholder='Post body'}}
+
+    {{#each post.errors.body as |error|}}
+      <div class="error">{{error.attribute}} {{error.message}}</div>
+    {{/each}}
   </div>
 
   <div>

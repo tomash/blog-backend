@@ -17,5 +17,19 @@ table {
 }
 .post-form input, .post-form textarea {
   width: 300px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  width: 300px;
+  text-align: right;
+}
+
+form > div {
   margin-bottom: 15px;
+}
+
+form label {
+  display: block;
 }

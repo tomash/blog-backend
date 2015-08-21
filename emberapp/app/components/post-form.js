@@ -6,10 +6,7 @@ export default Ember.Component.extend({
 
   actions: {
     submit() {
-      let post = {
-        title: this.get('title'),
-        body: this.get('body')
-      };
+      let post = this.get('post');
 
       this.sendAction('action', post);
     }

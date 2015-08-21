@@ -1,10 +1,10 @@
 <form {{action 'submit' on='submit'}}>
   <div>
-    {{input value=title required='true' maxlength=titleMaxLength type='text' placeholder='Post title'}}
+    {{input value=post.title required='true' maxlength=titleMaxLength type='text' placeholder='Post title'}}
   </div>
 
   <div>
-    {{textarea value=body required='true' maxlength=bodyMaxLength placeholder='Post body'}}
+    {{textarea value=post.body required='true' maxlength=bodyMaxLength placeholder='Post body'}}
   </div>
 
   <div>

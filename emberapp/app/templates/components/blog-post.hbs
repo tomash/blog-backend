@@ -1,8 +1,8 @@
 <h3>{{post.title}}</h3>
-<div class="text-muted">{{moment-from-now post.createdAt}}</div>
 {{truncate-with-expand length=300 content=post.body}}
 
-<p>
+<span class="text-muted">{{moment-from-now post.createdAt}}</span>
+<p class="actions pull-right">
   {{#link-to 'posts.show' post}}Show{{/link-to}}
   |
   {{#link-to 'posts.edit' post}}Edit{{/link-to}}

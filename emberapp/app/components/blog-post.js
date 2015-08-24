@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['blog-post'],
+
   actions: {
     destroy() {
       let post = this.get('post');

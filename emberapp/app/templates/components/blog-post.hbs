@@ -1,6 +1,10 @@
 <h3>{{#link-to 'posts.show' post}}{{post.title}}{{/link-to}}</h3>
 
-{{truncate-with-expand length=300 content=post.body}}
+{{#if truncateLength}}
+  {{truncate-with-expand length=truncateLength content=post.body}}
+{{else}}
+  <p>{{post.body}}</p>
+{{/if}}
 
 <span class="text-muted">{{moment-from-now post.createdAt}}</span>
 

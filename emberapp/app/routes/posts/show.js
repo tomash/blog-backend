@@ -6,5 +6,11 @@ export default Ember.Route.extend({
   },
   setupController(controller, post) {
     controller.set('post', post);
+  },
+
+  actions: {
+    destroyPost(post) {
+      console.log("posts/show = ", post);
+    }
   }
 });

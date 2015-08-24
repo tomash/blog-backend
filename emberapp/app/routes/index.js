@@ -25,6 +25,14 @@ export default Ember.Route.extend({
       console.log('posts-index-route:createPost', post);
 
       post.save().then(this.createAndSetPost.bind(this));
+    },
+
+    destroyPost(post) {
+      console.log('index route = ', post);
+
+      if (confirm(`Do you really want to destroy post ${post.title}?`)) {
+        post.destroyRecord();
+      }
     }
   }
 });

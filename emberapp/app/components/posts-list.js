@@ -15,5 +15,12 @@ export default Ember.Component.extend({
     }
 
     return 0;
-  })
+  }),
+
+  actions: {
+    destroyPost(post) {
+      console.log('posts-list = ', post);
+      this.sendAction('destroyPost', post);
+    }
+  }
 });

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html, :json
+  respond_to :json
 
   def index
     @posts = Post.includes(:comments)

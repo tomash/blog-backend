@@ -6,5 +6,6 @@
   "emberapp/app/router.js": {"type": "route"},
   "emberapp/app/routes/*.js": {"type": "route"},
   "emberapp/app/templates/*.hbs": {"type": "template"},
+  "emberapp/app/helpers/*.js": {"type": "ehelper"},
   "emberapp/app/styles/*": {"type": "estylesheet"}
 }

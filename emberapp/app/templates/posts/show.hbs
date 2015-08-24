@@ -1,14 +1,11 @@
-<p>
-  <strong>Title:</strong>
-  {{post.title}}
-</p>
+<h3>{{#link-to 'posts.show' post}}{{post.title}}{{/link-to}}</h3>
 
-<p>
-  <strong>Body:</strong>
-  {{post.body}}
-</p>
+<p>{{post.body}}</p>
 
-<p>
+<span class="text-muted">{{moment-from-now post.createdAt}}</span>
+
+<p class="actions pull-right">
   {{#link-to 'posts.edit' post}}Edit{{/link-to}}
-  Back
+  |
+  <a class="btn-link" {{action 'destroy' post}}>Destroy</a>
 </p>

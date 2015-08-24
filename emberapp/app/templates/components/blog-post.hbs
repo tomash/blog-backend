@@ -1,10 +1,10 @@
-<h3>{{post.title}}</h3>
+<h3>{{#link-to 'posts.show' post}}{{post.title}}{{/link-to}}</h3>
+
 {{truncate-with-expand length=300 content=post.body}}
 
 <span class="text-muted">{{moment-from-now post.createdAt}}</span>
+
 <p class="actions pull-right">
-  {{#link-to 'posts.show' post}}Show{{/link-to}}
-  |
   {{#link-to 'posts.edit' post}}Edit{{/link-to}}
   |
   <a class="btn-link" {{action 'destroy' post}}>Destroy</a>

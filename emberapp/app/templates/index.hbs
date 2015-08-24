@@ -1,5 +1,12 @@
-{{#each posts as |post|}}
-  {{blog-post tagName='tr' post=post}}
-{{/each}}
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    {{#each posts as |post|}}
+      {{blog-post tagName='tr' post=post}}
+    {{/each}}
+  </div>
 
-{{new-post-form post=newPost action='createPost'}}
+  <div class="col-md-3 well">
+    {{new-post-form post=newPost action='createPost'}}
+  </div>
+</div>
+

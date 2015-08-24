@@ -1,19 +1,19 @@
 <form {{action 'submit' on='submit'}}>
-  <div>
+  <div class="form-group">
     <label for="title">Title:</label>
-    {{input value=post.title required='true' maxlength=titleMaxLength type='text' placeholder='Post title'}}
+    {{input value=post.title required='true' maxlength=titleMaxLength type='text' placeholder='Post title' class='form-control'}}
 
     {{error-list errors=post.errors.title}}
   </div>
 
-  <div>
-    <label for="body">Body:</label>
-    {{textarea value=post.body required='true' maxlength=bodyMaxLength placeholder='Post body'}}
-    <p class="remaining-chars">Remaining chars: {{remainingChars}}</p>
+  <div class="form-group">
+    <label for="body"> Body: </label>
+    <span class="text-muted pull-right">chars left: {{remainingChars}}</span>
+    {{textarea value=post.body required='true' rows=8 maxlength=bodyMaxLength placeholder='Post body' class='form-control'}}
+
+
     {{error-list errors=post.errors.body}}
   </div>
 
-  <div>
-    <button {{action 'submit' on='submit'}}>{{submitLabel}}</button>
-  </div>
+  <button class="btn btn-primary" {{action 'submit' on='submit'}}>{{submitLabel}}</button>
 </form>

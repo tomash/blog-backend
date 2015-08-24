@@ -6,7 +6,7 @@ def lorem(num)
 end
 
 5.times do |n|
-  post = Post.create! title: "Post title ##{n}", body: lorem(10)
+  post = Post.create! title: FFaker::HipsterIpsum.sentence, body: FFaker::BaconIpsum.paragraphs(rand(2..8)).join(' ')
 
   rand(0..6).times do |n|
     Comment.create! body: lorem(3), post: post

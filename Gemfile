@@ -34,6 +34,7 @@ gem 'responders'
 gem 'active_model_serializers'
 
 group :development, :test do
+  gem 'ffaker'
   gem 'pry-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

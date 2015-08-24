@@ -1,0 +1,5 @@
+{{#each posts as |post|}}
+  {{blog-post tagName='tr' post=post}}
+{{/each}}
+
+{{new-post-form post=newPost action='createPost'}}

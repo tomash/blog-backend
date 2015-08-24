@@ -1,5 +1,10 @@
-<td>{{post.title}}</td>
-<td>{{truncate-with-expand length=50 content=post.body}}</td>
-<td>{{#link-to 'posts.show' post}}Show{{/link-to}}</td>
-<td>{{#link-to 'posts.edit' post}}Edit{{/link-to}}</td>
-<td><button {{action 'destroy' post}}>Destroy</button></td>
+<h3>{{post.title}}</h3>
+{{truncate-with-expand length=50 content=post.body}}
+
+<p>
+  {{#link-to 'posts.show' post}}Show{{/link-to}}
+  |
+  {{#link-to 'posts.edit' post}}Edit{{/link-to}}
+  |
+  <button {{action 'destroy' post}}>Destroy</button>
+</p>

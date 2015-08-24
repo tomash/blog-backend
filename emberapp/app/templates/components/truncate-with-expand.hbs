@@ -1,10 +1,10 @@
 {{#if isTruncationNeeded}}
   {{#if isExpanded}}
     {{content}}
-    <button class="small" {{action 'collapse'}}>collapse</button>
+    <a class="btn-xs btn-link" {{action 'collapse'}}>- collapse</a>
   {{else}}
     {{truncatedContent}}
-    <button class="small" {{action 'expand'}}>expand</button>
+    <a class="btn-xs btn-link" {{action 'expand'}}>+ expand</a>
   {{/if}}
 {{else}}
   {{content}}

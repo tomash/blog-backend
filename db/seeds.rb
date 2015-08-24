@@ -1,11 +1,13 @@
 Post.destroy_all
 Comment.destroy_all
 
-def lorem(num)
-  'Lorem ipsum dolor sit amet. '*num
+count = ENV['count'].present? ? ENV['count'].to_i : 5
+
+def lorem(count)
+  'Lorem ipsum dolor sit amet. '*count
 end
 
-5.times do |n|
+count.times do |n|
   post = Post.create! \
     title: FFaker::HipsterIpsum.sentence,
     body: FFaker::BaconIpsum.paragraphs(rand(2..8)).join(' '),

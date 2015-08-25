@@ -1,5 +1,5 @@
 {{#if isFormShown}}
   {{post-form post=post action='createPost' submitLabel='Create post'}}
 {{else}}
-  <a href='#' {{action 'showForm'}}>New post</a>
+  <button class="btn btn-primary" {{action 'showForm'}}>New post</button>
 {{/if}}

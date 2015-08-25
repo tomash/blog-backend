@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  isFormShown: true, ////////////////////////////// REMEMBER TO CHANGE IT
+  isFormShown: false,
   classNames: ['post-form'],
 
   actions: {
@@ -10,6 +10,8 @@ export default Ember.Component.extend({
     },
     createPost(post) {
       console.log('new-post-form:createPost', post);
+      this.set('isFormShown', false);
+
       this.sendAction('action', post);
     }
   }

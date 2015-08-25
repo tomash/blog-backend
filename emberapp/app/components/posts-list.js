@@ -8,13 +8,7 @@ export default Ember.Component.extend({
     let timeA = postA.get('createdAt').getTime(),
         timeB = postB.get('createdAt').getTime();
 
-    if (timeA > timeB) {
-      return -1;
-    } else if (timeA < timeB) {
-      return 1;
-    }
-
-    return 0;
+    return -Ember.compare(timeA, timeB);
   }),
 
   actions: {

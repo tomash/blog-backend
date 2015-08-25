@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment.create(comment_params)
+    @comment = Comment.create(comment_params)
     respond_with @comment
   end
 

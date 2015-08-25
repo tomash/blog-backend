@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   /*
    * Show only comments that are saved
    */
-  filteredComments: Ember.computed.filter('comments', function(comment) {
+  filteredComments: Ember.computed.filter('comments', function(comment, index, array) {
     return !comment.get('isNew');
   }),
 

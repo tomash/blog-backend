@@ -1,9 +1,9 @@
 <h3>{{#link-to 'posts.show' post}}{{post.title}}{{/link-to}}</h3>
 
 {{#if truncateLength}}
-  {{truncate-with-expand length=truncateLength content=post.body}}
+{{truncate-with-expand length=truncateLength content=post.body}}
 {{else}}
-  <p>{{post.body}}</p>
+<p>{{post.body}}</p>
 {{/if}}
 
 <div class="info">
@@ -15,22 +15,22 @@
 
   <span class="text-muted">
     {{#if hasComments}}
-      {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
+    {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
     {{else}}
-      no comments yet
+    no comments yet
     {{/if}}
   </span>
+
+  <div class="actions pull-right">
+    {{#link-to 'posts.edit' post}}Edit{{/link-to}}
+    |
+    <a class="btn-link" {{action 'destroyPost' post}}>Destroy</a>
+  </div>
 </div>
 
 {{#if commentingEnabled}}
-  <div class="commenting">
-    {{comments-list comments=comments}}
-    {{new-comment-form}}
-  </div>
-{{/if}}
-
-<div class="actions pull-right">
-  {{#link-to 'posts.edit' post}}Edit{{/link-to}}
-  |
-  <a class="btn-link" {{action 'destroyPost' post}}>Destroy</a>
+<div class="commenting">
+  {{comments-list comments=comments}}
+  {{new-comment-form class='col-md-6'}}
 </div>
+{{/if}}

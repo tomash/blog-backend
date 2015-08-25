@@ -1,13 +1,6 @@
-{{#if isFormShown}}
-<a {{action 'toggleForm'}}>cancel</a>
-<br/>
-
-<form>
+<form {{action 'submit' on='submit'}}>
   <div class="form-group">
-    <textarea placeholder="Write your comment here!" class="form-control" rows="2" cols="10">{{body}}</textarea>
+    {{textarea valud=body required='true' maxlength=1000 placeholder="Write your comment here!" class="form-control" rows="2" cols="10"}}
   </div>
   <button class="btn btn-xs btn-primary" {{action 'submit'}}>save comment</button>
 </form>
-{{else}}
-<a {{action 'toggleForm'}}>comment this!</a>
-{{/if}}

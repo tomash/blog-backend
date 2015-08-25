@@ -11,8 +11,8 @@ export default Ember.Route.extend({
   },
 
   /*
-    * Creates new 'comment' record and sets it in controller as newComment
-    */
+   * Creates new 'comment' record and sets it in controller as newComment
+   */
   createAndSetComment() {
     let newComment = this.store.createRecord('comment', {});
 

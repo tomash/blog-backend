@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   /*
    * Sort posts by createdAt in descending order
    */
-  postsByCreatedAtDesc: Ember.computed.sort('posts', function(postA, postB) {
+  orderedPosts: Ember.computed.sort('posts', function(postA, postB) {
     let timeA = postA.get('createdAt').getTime(),
         timeB = postB.get('createdAt').getTime();
 

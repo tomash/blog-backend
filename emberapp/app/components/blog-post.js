@@ -2,8 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['blog-post'],
+  commentingEnabled: false,
 
-  commentsCount: Ember.computed.alias('post.comments.length'),
+  comments: Ember.computed.alias('post.comments'),
+  commentsCount: Ember.computed.alias('comments.length'),
   hasComments: Ember.computed('commentsCount', function() {
     return this.get('commentsCount') > 0;
   }),

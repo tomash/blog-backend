@@ -6,20 +6,31 @@
   <p>{{post.body}}</p>
 {{/if}}
 
-<span class="text-muted">
-  {{moment-from-now post.createdAt}}
+<div class="info">
+  <span class="text-muted">
+    {{moment-from-now post.createdAt}}
+  </span>
 
   |
 
-  {{#if hasComments}}
-    {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
-  {{else}}
-    no comments yet
-  {{/if}}
-</span>
+  <span class="text-muted">
+    {{#if hasComments}}
+      {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
+    {{else}}
+      no comments yet
+    {{/if}}
+  </span>
+</div>
 
-<p class="actions pull-right">
+{{#if commentingEnabled}}
+  <div class="commenting">
+    {{comments-list comments=comments}}
+    {{new-comment-form}}
+  </div>
+{{/if}}
+
+<div class="actions pull-right">
   {{#link-to 'posts.edit' post}}Edit{{/link-to}}
   |
   <a class="btn-link" {{action 'destroyPost' post}}>Destroy</a>
-</p>
+</div>

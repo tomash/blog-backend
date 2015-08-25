@@ -1,0 +1,12 @@
+{{#if comment.isEditing}}
+  {{comment-form comment=comment action='updateComment' cancel='toggle' class='col-md-6'}}
+  <div class="clearfix"></div>
+{{else}}
+  <div class="col-md-2">
+    <span class="text-muted">{{moment-from-now commment.createdAt}}</span>
+    <button class="btn-link" {{action 'toggle'}}>edit</button>
+  </div>
+  <div class="col-md-10">
+    <p>{{comment.body}}</p>
+  </div>
+{{/if}}

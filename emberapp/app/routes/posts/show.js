@@ -28,6 +28,10 @@ export default Ember.Route.extend({
 
     createComment(comment) {
       comment.save().then(this.createAndSetComment.bind(this));
+    },
+
+    updateComment(comment) {
+      comment.save().then(() => comment.set('isEditing', false));
     }
   }
 });

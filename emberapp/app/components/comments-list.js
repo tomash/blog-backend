@@ -14,5 +14,11 @@ export default Ember.Component.extend({
           timeB = commentB.get('createdAt').getTime();
 
     return -Ember.compare(timeA, timeB);
-  })
+  }),
+
+  actions: {
+    updateComment(comment) {
+      this.sendAction('updateComment', comment);
+    }
+  }
 });

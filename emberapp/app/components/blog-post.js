@@ -19,6 +19,9 @@ export default Ember.Component.extend({
       comment.set('post', post);
 
       this.sendAction('createComment', comment);
+    },
+    updateComment(comment) {
+      this.sendAction('updateComment', comment);
     }
   }
 });

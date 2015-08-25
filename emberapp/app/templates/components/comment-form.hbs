@@ -5,4 +5,7 @@
     {{error-list errors=comment.errors.body}}
   </div>
   <button class="btn btn-xs btn-primary">save comment</button>
+  {{#if cancel}}
+    <button class="btn-link" {{action 'cancel'}}>cancel</button>
+  {{/if}}
 </form>

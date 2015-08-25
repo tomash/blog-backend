@@ -31,7 +31,7 @@ export default Ember.Route.extend({
     },
 
     updateComment(comment) {
-      comment.save().then(() => comment.set('isEditing', false));
+      comment.save().then(() => comment.set('isEdited', false));
     }
   }
 });

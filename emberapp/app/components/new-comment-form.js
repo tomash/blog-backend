@@ -4,8 +4,8 @@ export default Ember.Component.extend({
   classNames: ['comment-form'],
 
   actions: {
-    submit() {
-      this.sendAction('action', this.get('body'));
+    save() {
+      this.sendAction('action', this.get('comment'));
     }
   }
 });

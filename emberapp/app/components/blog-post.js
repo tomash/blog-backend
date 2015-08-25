@@ -15,9 +15,10 @@ export default Ember.Component.extend({
       // console.log("blog-post post = ", post);
       this.sendAction('destroyPost', post);
     },
-    createComment(body) {
-      console.log("body = ", body);
-      this.sendAction('createComment', { post: this.get('post'), body: body });
+    createComment(comment) {
+      comment.post = this.get('post');
+
+      this.sendAction('createComment', comment);
     }
   }
 });

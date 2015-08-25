@@ -6,6 +6,17 @@ export default Ember.Route.extend({
   },
   setupController(controller, post) {
     controller.set('post', post);
+
+    this.createAndSetComment();
+  },
+
+  /*
+    * Creates new 'comment' record and sets it in controller as newComment
+    */
+  createAndSetComment() {
+    let newComment = this.store.createRecord('comment', {});
+
+    this.controller.set('newComment', newComment);
   },
 
   actions: {
@@ -18,11 +29,8 @@ export default Ember.Route.extend({
     },
 
     createComment(comment) {
-      console.log("create comment = ", comment);
-
-      this.store.createRecord('comment', { body: comment.body }).save().then(() => {
-        console.log('created comment!!!!');
-      });
+      console.log('create comment =', comment);
+      comment.save().then(this.createAndSetComment.bind(this));
     }
   }
 });

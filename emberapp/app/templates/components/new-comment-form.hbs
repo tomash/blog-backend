@@ -1,6 +1,8 @@
 <form {{action 'save' on='submit'}}>
   <div class="form-group">
-    {{textarea value=body required='true' maxlength=1000 placeholder="Write your comment here!" class="form-control" rows="2" cols="10"}}
+    {{textarea value=comment.body required='true' maxlength=1000 placeholder="Write your comment here!" class="form-control" rows="2" cols="10"}}
+
+    {{error-list errors=comment.errors.body}}
   </div>
-  <button class="btn btn-xs btn-primary" {{action 'submit'}}>save comment</button>
+  <button class="btn btn-xs btn-primary">save comment</button>
 </form>

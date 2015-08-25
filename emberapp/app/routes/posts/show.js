@@ -21,15 +21,12 @@ export default Ember.Route.extend({
 
   actions: {
     destroyPost(post) {
-      console.log("posts/show = ", post);
-
       if (confirm(`Do you really want to destroy post ${post.title}?`)) {
         post.destroyRecord().then(() => this.transitionTo('index'));
       }
     },
 
     createComment(comment) {
-      console.log('create comment =', comment);
       comment.save().then(this.createAndSetComment.bind(this));
     }
   }

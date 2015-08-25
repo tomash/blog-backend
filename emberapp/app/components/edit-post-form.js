@@ -5,7 +5,6 @@ export default Ember.Component.extend({
 
   actions: {
     updatePost(post) {
-      console.log('edit-post-form:updatePost', post);
       this.sendAction('action', post);
     }
   }

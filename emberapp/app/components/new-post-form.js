@@ -9,7 +9,6 @@ export default Ember.Component.extend({
       this.set('isFormShown', true);
     },
     createPost(post) {
-      console.log('new-post-form:createPost', post);
       this.set('isFormShown', false);
 
       this.sendAction('action', post);

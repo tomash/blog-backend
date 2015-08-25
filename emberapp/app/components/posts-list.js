@@ -19,7 +19,6 @@ export default Ember.Component.extend({
 
   actions: {
     destroyPost(post) {
-      console.log('posts-list = ', post);
       this.sendAction('destroyPost', post);
     }
   }

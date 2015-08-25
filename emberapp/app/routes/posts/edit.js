@@ -10,8 +10,6 @@ export default Ember.Route.extend({
 
   actions: {
     updatePost(post) {
-      console.log('posts-edit-route:updatePost', post);
-
       post.save().then(() => this.transitionTo('index'));
     }
   }

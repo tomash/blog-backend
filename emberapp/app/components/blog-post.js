@@ -16,7 +16,8 @@ export default Ember.Component.extend({
       this.sendAction('destroyPost', post);
     },
     createComment(comment) {
-      comment.post = this.get('post');
+      let post = this.get('post');
+      comment.set('post', post);
 
       this.sendAction('createComment', comment);
     }

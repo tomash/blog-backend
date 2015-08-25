@@ -9,9 +9,12 @@
 <span class="text-muted">
   {{moment-from-now post.createdAt}}
 
+  |
+
   {{#if hasComments}}
-    |
     {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
+  {{else}}
+    no comments yet
   {{/if}}
 </span>
 

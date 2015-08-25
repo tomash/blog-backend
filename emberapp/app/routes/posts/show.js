@@ -15,6 +15,14 @@ export default Ember.Route.extend({
       if (confirm(`Do you really want to destroy post ${post.title}?`)) {
         post.destroyRecord().then(() => this.transitionTo('index'));
       }
+    },
+
+    createComment(comment) {
+      console.log("create comment = ", comment);
+
+      this.store.createRecord('comment', { body: comment.body }).save().then(() => {
+        console.log('created comment!!!!');
+      });
     }
   }
 });

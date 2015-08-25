@@ -12,8 +12,12 @@ export default Ember.Component.extend({
 
   actions: {
     destroyPost(post) {
-      console.log("blog-post post = ", post);
+      // console.log("blog-post post = ", post);
       this.sendAction('destroyPost', post);
+    },
+    createComment(body) {
+      console.log("body = ", body);
+      this.sendAction('createComment', { post: this.get('post'), body: body });
     }
   }
 });

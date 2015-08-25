@@ -15,9 +15,9 @@
 
   <span class="text-muted">
     {{#if hasComments}}
-    {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
+      {{commentsCount}} {{inflect-by-count 'comment' commentsCount}}
     {{else}}
-    no comments yet
+      no comments yet
     {{/if}}
   </span>
 
@@ -29,8 +29,8 @@
 </div>
 
 {{#if commentingEnabled}}
-<div class="commenting">
-  {{comments-list comments=comments}}
-  {{new-comment-form class='col-md-6'}}
-</div>
+  <div class="commenting">
+    {{comments-list comments=comments}}
+    {{new-comment-form action='createComment' class='col-md-6'}}
+  </div>
 {{/if}}

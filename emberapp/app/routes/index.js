@@ -15,7 +15,6 @@ export default Ember.Route.extend({
    */
   createAndSetPost() {
     let newPost = this.store.createRecord('post', {});
-    window.newPost = newPost;
 
     this.controller.set('newPost', newPost);
   },

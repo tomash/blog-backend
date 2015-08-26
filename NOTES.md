@@ -1,5 +1,7 @@
 ## Development notes
 
+This is kind of `TIL` article. Imperative sentences used because of brevity, please question anything written below ;)
+
 * Use [nvm]
 * Use Ember-Inspector if you get lost
 * Ember-CLI uses both npm and bower, I assume this is because not all packages are in npm yet
@@ -61,11 +63,11 @@
 
 * Rails errors are send in json consumable by `ActiveModelAdapter` yay! You can access them with `model.errors.attributeName`.
 
-* `Ember.computed` is great. I use for everything, which makes my templates simple.
+* `Ember.computed` is great. Use it for everything, which makes templates simple.
 
 * Components should be concerned only with UI and handling/sending actions. `model.destroyRecord()` in component is a nono!
 
-* Use bootstrap, it makes working with an app much pleasant than user agent styles :-). `ember-cli-bootstrap-sass` was not working for me in 2.0. I just installed `ember-cli-sass` via npm and `bootstrap-sass via bower, and then added path to sass files in `ember-cli-build.js`. Then it is only one `@import "bootstrap"` away.
+* Use bootstrap, it makes working with an app much pleasant than user agent styles :-). `ember-cli-bootstrap-sass` was not working for me in 2.0. I've just installed `ember-cli-sass` via npm and `bootstrap-sass` via bower, and then added path to sass files in `ember-cli-build.js`. Then it is only one `@import "bootstrap"` away.
 
 * You can give class to components with `class` property of course ;)
 

@@ -4,7 +4,11 @@
   </div>
 
   <div class="col-md-3 col-md-offset-1 well">
-    {{new-post-form post=newPost action='createPost'}}
+    {{#if isNewPostFormShown}}
+      {{post-form post=newPost action='createPost' cancel='toggleNewPostForm' submitLabel='Create post'}}
+    {{else}}
+      <button class="btn btn-primary" {{action 'toggleNewPostForm'}}>New post</button>
+    {{/if}}
   </div>
 </div>
 

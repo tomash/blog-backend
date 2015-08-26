@@ -11,6 +11,10 @@ export default Ember.Route.extend({
   actions: {
     updatePost(post) {
       post.save().then(() => this.transitionTo('index'));
+    },
+
+    gotoIndex() {
+      this.transitionTo('index');
     }
   }
 });

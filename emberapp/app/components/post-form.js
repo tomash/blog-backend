@@ -12,10 +12,14 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    submit() {
+    save() {
       let post = this.get('post');
 
       this.sendAction('action', post);
+    },
+
+    cancel() {
+      this.sendAction('cancel');
     }
   }
 });

@@ -28,6 +28,10 @@ export default Ember.Route.extend({
       if (confirm(`Do you really want to destroy post ${post.title}?`)) {
         post.destroyRecord();
       }
+    },
+
+    toggleNewPostForm() {
+      this.controller.toggleProperty('isNewPostFormShown');
     }
   }
 });

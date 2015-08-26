@@ -71,7 +71,7 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
 
 * You can give class to components with `class` property of course ;)
 
-* There are plugins for everything, like the `ember-moment` that provides `{{moment-from-now}}` component. That is great :)
+* There are plugins for everything, like the `ember-moment` that provides `{{moment-from-now}} component. That is great :)
 
 * You need to filter out new records from listings, if you keep one all the time for pushing into the form component.
 
@@ -80,6 +80,14 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
 * You cannot sort by date attribute with `Ember.computed.sortBy`, you need to use `sort`. But you can use `Ember.compare` to just compare times, instead of reinventing the wheel.
 
 * You can set arbitrary properties on your models. This is good to keep local state. For example, you can set `comment.isEdited` to true, to indicate that given comment is edited atm, so form can show, destroy button can hide etc). Only properties defined in model definition will be pushed to backend when `save`d (in contrast to how Backbone sends all of them).
+
+* Do not use `destroy` as a property name - when you set this property while initializing component,
+  bad things will happen (some unintentional method overwrite), and when given ember-view needs to be
+  removed from DOM, this pops up:
+
+  ```
+  Uncaught TypeError: renderNode.emberView.destroy is not a function
+  ```
 
 [nvm]: https://github.com/creationix/nvm
 [active_model_serializers]: https://github.com/rails-api/active_model_serializers

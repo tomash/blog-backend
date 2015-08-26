@@ -21,7 +21,7 @@ export default Ember.Route.extend({
 
   actions: {
     destroyPost(post) {
-      if (confirm(`Do you really want to destroy post ${post.title}?`)) {
+      if (confirm(`Do you really want to destroy post '${post.title}'?`)) {
         post.destroyRecord().then(() => this.transitionTo('index'));
       }
     },
@@ -32,6 +32,12 @@ export default Ember.Route.extend({
 
     updateComment(comment) {
       comment.save().then(() => comment.set('isEdited', false));
+    },
+
+    destroyComment(comment) {
+      if (confirm("Do you really want to destroy this comment?")) {
+        comment.destroyRecord().then(() => console.log('destroyed in route'));
+      }
     }
   }
 });

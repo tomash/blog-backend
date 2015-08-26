@@ -8,7 +8,9 @@ export default Ember.Component.extend({
       this.sendAction('updateComment', comment)
     },
 
-    destroy(comment) {
+    destroyComment() {
+      let comment = this.get('comment');
+
       this.sendAction('destroyComment', comment);
     },
 

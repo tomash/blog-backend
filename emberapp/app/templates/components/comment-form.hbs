@@ -1,5 +1,7 @@
 <form {{action 'save' on='submit'}}>
   <div class="form-group">
+    {{remaining-chars minLength=bodyMinLength maxLength=bodyMaxLength value=comment.body label='left:' class='pull-right'}}
+
     {{textarea value=comment.body required='true' maxlength=1000 placeholder="Write your comment here!" class="form-control" rows="2" cols="10"}}
 
     {{error-list errors=comment.errors.body}}

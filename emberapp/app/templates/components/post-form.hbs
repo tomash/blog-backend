@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <label for="body"> Body: </label>
-    <span class="text-muted pull-right">chars left: {{remainingChars}}</span>
+    {{remaining-chars minLength=bodyMinLength maxLength=bodyMaxLength value=post.body label='chars left:' class='pull-right'}}
     {{textarea value=post.body required='true' rows=8 maxlength=bodyMaxLength placeholder='Post body' class='form-control'}}
 
 

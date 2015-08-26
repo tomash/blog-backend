@@ -2,14 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   titleMaxLength: 255,
+  bodyMinLength: 20,
   bodyMaxLength: 4000,
-
-  remainingChars: Ember.computed('post.body', 'bodyMaxLength', function() {
-    let maxLength = this.get('bodyMaxLength'),
-        body = this.get('post.body') || '';
-
-    return maxLength - body.length;
-  }),
 
   actions: {
     save() {

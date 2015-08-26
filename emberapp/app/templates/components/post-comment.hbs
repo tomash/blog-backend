@@ -3,10 +3,12 @@
   <div class="clearfix"></div>
 {{else}}
   <div class="col-md-2">
-    <span class="text-muted">{{moment-from-now commment.createdAt}}</span>
-    <button class="btn-link" {{action 'toggle'}}>edit</button>
+    <div class="text-muted">{{moment-from-now commment.createdAt}}</div>
+    <div><a {{action 'toggle'}}>edit</a> | <a {{action 'remove'}}>remove</a></div>
   </div>
   <div class="col-md-10">
     <p>{{comment.body}}</p>
   </div>
+
+  <div class="clearfix"></div>
 {{/if}}

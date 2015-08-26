@@ -33,9 +33,9 @@
 
 * This is just a regular property, it can be `set()`, `get()` or passed in template:
 
-```handlebars
-{{my-component tagName='span'}}
-```
+  ```handlebars
+  {{my-component tagName='span'}}
+  ```
 
 * Use `{{action 'actionName'}}` to define actions for DOM nodes.
 

@@ -1,7 +1,20 @@
-<div class="container">
-  <div class="row">
-    <h2 id="title">{{#link-to 'index'}}Ember blog{{/link-to}}</h2>
-  </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      {{#link-to 'index' class='navbar-brand'}}Ember blog{{/link-to}}
+    </div>
 
+    <ul class="nav navbar-nav pull-right">
+      <li>
+        <p class="navbar-btn">
+          <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=dc161ff4e6549b0281a6" class="btn btn-default">Login via GitHub</a>
+        </p>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
   {{outlet}}
 </div>

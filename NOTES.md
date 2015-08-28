@@ -89,6 +89,27 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
   Uncaught TypeError: renderNode.emberView.destroy is not a function
   ```
 
+* If you need to handle some actions top-level, create an `ApplicationController`. I've used it to handle `signOut` action,
+  which is sent by a button in the navbar
+
+* You can auto-inject services into desired entities in your app, just create an `initializer`:
+
+  ```js
+  export function initialize(container, application) {
+    application.inject('route', 'auth', 'service:authentication');
+    application.inject('component', 'auth', 'service:authentication');
+    application.inject('controller', 'auth', 'service:authentication');
+  }
+
+  export default {
+    name: 'authentication',
+    initialize: initialize
+  };
+  ```
+
+  This initializer will make `Authentication` service available as `auth` for all routes, components and controllers.
+
+
 [nvm]: https://github.com/creationix/nvm
 [active_model_serializers]: https://github.com/rails-api/active_model_serializers
 [ActiveModelAdapter]: https://github.com/ember-data/active-model-adapter

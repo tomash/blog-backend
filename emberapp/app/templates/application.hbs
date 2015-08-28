@@ -8,7 +8,12 @@
     <ul class="nav navbar-nav pull-right">
       <li>
         <p class="navbar-btn">
-          <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=dc161ff4e6549b0281a6" class="btn btn-default">Login via GitHub</a>
+          {{#if auth.isSignedIn}}
+            Signed in as {{auth.login}}
+            <button {{action 'signOut'}} class="btn btn-default">Sign out</button>
+          {{else}}
+            {{#link-to 'sign-in' class='btn btn-default'}}Sign in{{/link-to}}
+          {{/if}}
         </p>
       </li>
     </ul>

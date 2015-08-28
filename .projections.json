@@ -8,5 +8,6 @@
   "emberapp/app/templates/*.hbs": {"type": "template"},
   "emberapp/app/helpers/*.js": {"type": "ehelper"},
   "emberapp/app/mixins/*.js": {"type": "mixin"},
+  "emberapp/app/services/*.js": {"type": "eservice"},
   "emberapp/app/styles/*": {"type": "estylesheet"}
 }

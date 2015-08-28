@@ -14,15 +14,18 @@ export default Ember.Component.extend({
     destroyPost(post) {
       this.sendAction('destroyPost', post);
     },
+
     createComment(comment) {
       let post = this.get('post');
       comment.set('post', post);
 
       this.sendAction('createComment', comment);
     },
+
     updateComment(comment) {
       this.sendAction('updateComment', comment);
     },
+
     destroyComment(comment) {
       this.sendAction('destroyComment', comment);
     }

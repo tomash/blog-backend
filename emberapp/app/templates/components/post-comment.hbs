@@ -1,13 +1,17 @@
-{{#if comment.isEdited}}
+{{#if isEdited}}
   {{comment-form comment=comment action='updateComment' cancel='toggle' class='col-md-6'}}
   <div class="clearfix"></div>
 {{else}}
   <div class="col-md-2">
     <div class="text-muted">{{moment-from-now commment.createdAt}}</div>
-    <div class="actions">
-      <a {{action 'toggle'}}>edit</a> | <a {{action 'destroyComment'}}>remove</a>
-    </div>
+
+    {{#if auth.isSignedIn}}
+      <div class="actions">
+        <a {{action 'toggle'}}>edit</a> | <a {{action 'destroyComment'}}>remove</a>
+      </div>
+    {{/if}}
   </div>
+
   <div class="col-md-10">
     <p>{{comment.body}}</p>
   </div>

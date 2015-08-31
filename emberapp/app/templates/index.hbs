@@ -3,12 +3,14 @@
     {{posts-list posts=posts destroyPost='destroyPost'}}
   </div>
 
-  <div class="col-md-3 col-md-offset-1 well">
-    {{#if isNewPostFormShown}}
-      {{post-form post=newPost action='createPost' cancel='toggleNewPostForm' submitLabel='Create post'}}
-    {{else}}
-      <button class="btn btn-primary" {{action 'toggleNewPostForm'}}>New post</button>
-    {{/if}}
-  </div>
+  {{#if auth.isSignedIn}}
+    <div class="col-md-3 col-md-offset-1 well">
+      {{#if isNewPostFormShown}}
+        {{post-form post=newPost action='createPost' cancel='toggleNewPostForm' submitLabel='Create post'}}
+      {{else}}
+        <button class="btn btn-primary" {{action 'toggleNewPostForm'}}>New post</button>
+      {{/if}}
+    </div>
+  {{/if}}
 </div>
 

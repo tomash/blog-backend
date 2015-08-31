@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['post-comment'],
 
+  isEdited: Ember.computed.and('auth.isSignedIn', 'comment.isEdited'),
+
   actions: {
     updateComment(comment) {
       this.sendAction('updateComment', comment)

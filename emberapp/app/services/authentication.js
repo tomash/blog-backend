@@ -14,11 +14,18 @@ export default Ember.Service.extend({
   },
 
   signIn(login, password) {
-    this.set('login', login);
-    this.set('password', password);
+    return Ember.$.ajax({
+      url: '/sign_in',
+      method: 'post',
+      username: login,
+      password: password
+    }).done((resolve) => {
+      this.set('login', login);
+      this.set('password', password);
 
-    localStorage['login'] = login;
-    localStorage['password'] = password;
+      localStorage['login'] = login;
+      localStorage['password'] = password;
+    });
   },
 
   signOut() {

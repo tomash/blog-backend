@@ -5,8 +5,11 @@ export default Ember.Route.extend({
 
   actions: {
     submit(login, password) {
-      this.auth.signIn(login);
-      this.transitionTo('index');
+      this.auth.signIn(login, password).done(() => {
+        this.transitionTo('index');
+      }).fail(() => {
+        alert('failed login!');
+      });
     }
   }
 });

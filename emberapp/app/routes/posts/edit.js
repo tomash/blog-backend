@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  beforeModel(transition) {
+    if (!this.get('auth.isSignedIn')) {
+      this.transitionTo('sign-in');
+    }
+  },
+
   model(params) {
     return this.store.findRecord('post', params.post_id);
   },

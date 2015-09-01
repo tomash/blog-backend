@@ -5,7 +5,7 @@ export function inflectByCount(params/*, hash*/) {
   let noun = params[0],
       count = params[1];
 
-  if (count != 1) {
+  if (count !== 1) {
     return pluralize(noun);
   }
 

@@ -7,7 +7,14 @@ export default Ember.Route.extend({
     submit(login, password) {
       this.auth.signIn(login, password).done(() => {
         this.set('controller.errorMessage', false);
-        this.transitionTo('index');
+
+        let previousTransition = this.get('controller.previousTransition');
+
+        if (previousTransition) {
+          previousTransition.retry();
+        } else {
+          this.transitionTo('index');
+        }
       }).fail(() => {
         this.set('controller.errorMessage', 'Invalid login or password!');
       });

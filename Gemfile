@@ -32,8 +32,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'responders'
 gem 'active_model_serializers'
+gem 'jump_in'
+gem 'bcrypt'
+gem 'has_secure_token'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
   gem 'ffaker'
   gem 'pry-rails'
 

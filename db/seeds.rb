@@ -1,11 +1,14 @@
 Post.destroy_all
 Comment.destroy_all
+User.destroy_all
 
 count = ENV['count'].present? ? ENV['count'].to_i : 5
 
 def lorem(count)
   'Lorem ipsum dolor sit amet. '*count
 end
+
+User.create! username: 'admin', password: 'password'
 
 count.times do |n|
   post = Post.create! \

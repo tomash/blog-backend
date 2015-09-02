@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export function initialize(container, application) {
   let authenticationService = application.__container__.lookup('service:authentication');
 
@@ -12,7 +14,7 @@ export function initialize(container, application) {
     }
 
     return true;
-  }
+  };
 
   Ember.$.ajaxPrefilter('+*', ajaxPrefilter);
 }

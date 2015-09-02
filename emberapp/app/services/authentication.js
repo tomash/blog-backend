@@ -19,7 +19,7 @@ export default Ember.Service.extend({
       method: 'post',
       username: login,
       password: password
-    }).done((resolve) => {
+    }).done(() => {
       this.set('login', login);
       this.set('password', password);
 

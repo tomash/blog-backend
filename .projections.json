@@ -10,6 +10,6 @@
   "emberapp/app/mixins/*.js": {"type": "mixin"},
   "emberapp/app/services/*.js": {"type": "eservice"},
   "emberapp/app/initializers/*.js": {"type": "einitializer"},
-  "emberapp/app/tests/*.js": {"type": "test"},
+  "emberapp/app/tests/**/*.js": {"type": "test"},
   "emberapp/app/styles/*": {"type": "estylesheet"}
 }

@@ -21,7 +21,7 @@
     {{/if}}
   </span>
 
-  {{#if auth.isSignedIn}}
+  {{#if session.isSignedIn}}
     <div class="actions pull-right">
       {{#link-to 'posts.edit' post}}Edit{{/link-to}}
       |

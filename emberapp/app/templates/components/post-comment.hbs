@@ -5,7 +5,7 @@
   <div class="col-md-2">
     <div class="text-muted">{{moment-from-now commment.createdAt}}</div>
 
-    {{#if auth.isSignedIn}}
+    {{#if session.isSignedIn}}
       <div class="actions">
         <a {{action 'toggle'}}>edit</a> | <a {{action 'destroyComment'}}>remove</a>
       </div>

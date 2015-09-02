@@ -1,11 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  auth: Ember.inject.service('authentication'),
+  session: Ember.inject.service('session'),
+  errorMessage: Ember.computed.alias('controller.errorMessage'),
+  username: Ember.computed.alias('controller.username'),
+  password: Ember.computed.alias('controller.password'),
 
   actions: {
-    submit(login, password) {
-      this.auth.signIn(login, password).done(() => {
+    submit() {
+      let session = this.get('session'),
+          username = this.get('username'),
+          password = this.get('password');
+
+      session.create(username, password).done(() => {
         this.set('controller.errorMessage', false);
 
         let previousTransition = this.get('controller.previousTransition');
@@ -16,7 +23,7 @@ export default Ember.Route.extend({
           this.transitionTo('index');
         }
       }).fail(() => {
-        this.set('controller.errorMessage', 'Invalid login or password!');
+        this.set('controller.errorMessage', 'Invalid username or password!');
       });
     }
   }

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel(transition) {
-    if (!this.get('auth.isSignedIn')) {
+    if (!this.get('session.isSignedIn')) {
       let signInController = this.controllerFor('sign-in', true);
 
       if (!signInController) {

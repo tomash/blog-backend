@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  auth: Ember.inject.service('authentication'),
+  session: Ember.inject.service('session'),
 
   actions: {
     signOut() {
-      this.auth.signOut();
+      this.session.signOut();
       this.transitionToRoute('index');
     }
   }

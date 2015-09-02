@@ -3,7 +3,7 @@
     {{posts-list posts=posts destroyPost='destroyPost'}}
   </div>
 
-  {{#if auth.isSignedIn}}
+  {{#if session.isSignedIn}}
     <div class="col-md-3 col-md-offset-1 well">
       {{#if isNewPostFormShown}}
         {{post-form post=newPost action='createPost' cancel='toggleNewPostForm' submitLabel='Create post'}}

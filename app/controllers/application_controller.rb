@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
 
   private
 
+  attr_reader :current_user # override `jump_in` variation that uses session/cookies
+
   def determine_format
     if request.format == 'application/vnd.api+json'
       request.format = :json
@@ -18,11 +20,13 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_by_auth_token
-    auth_token = request.headers['HTTP_X_TOKEN']
+    auth_token = request.headers['HTTP_X_TOKEN'].presence
+    user       = auth_token && User.find_by(auth_token: auth_token)
 
-    if auth_token.present?
-      user = self.class.find_by(auth_token: auth_token)
-      @current_user = user if user
+    if user
+      @current_user = user
+    else
+      render nothing: true, status: 401
     end
   end
 end

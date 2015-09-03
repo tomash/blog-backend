@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :authenticate_by_auth_token, only: [:show_current]
 
   respond_to :json

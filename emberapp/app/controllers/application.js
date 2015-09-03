@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
   actions: {
     signOut() {
-      this.session.signOut();
+      this.session.destroy();
       this.transitionToRoute('index');
     }
   }

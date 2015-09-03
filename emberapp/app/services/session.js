@@ -1,14 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  authToken: false,
-  isSignedIn: Ember.computed.alias('authToken'),
+  currentUser: false,
+  authToken: Ember.computed.alias('currentUser.authToken'),
+  isSignedIn: Ember.computed.alias('currentUser'),
 
   init() {
-    let authToken = localStorage.authToken;
-
-    if (authToken) {
-      this.set('authToken', authToken);
+    if (localStorage.currentUser) {
+      this.set('currentUser', JSON.parse(localStorage.currentUser));
     }
   },
 
@@ -21,11 +20,14 @@ export default Ember.Service.extend({
         password: password
       }
     }).done((response) => {
-      this.set('authToken', response.auth_token);
-      localStorage.authToken = response.auth_token;
+      this.set('currentUser', response.user);
+      localStorage.currentUser = JSON.stringify(response.user);
     });
   },
 
-  signOut() {
+  destroy() {
+    this.set('authToken', false);
+    this.set('currentUser', false);
+    delete localStorage.authToken;
   }
 });

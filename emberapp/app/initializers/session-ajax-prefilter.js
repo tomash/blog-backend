@@ -6,13 +6,8 @@ export function initialize(container, application) {
   let ajaxPrefilter = function(options, originalOptions, xhr) {
     let authToken = sessionService.get('authToken');
 
-    // console.log("xhr = ", xhr);
-    // console.log("options = ", options);
-    // console.log("originalOptions = ", originalOptions);
     if (authToken) {
       options.headers = { 'X-Token': authToken };
-      // console.log("setting X-Token to ", authToken);
-      // xhr.setRequestHeader('X-Token', authToken);
     }
 
     return true;

@@ -8,8 +8,8 @@
     <ul class="nav navbar-nav pull-right">
       <li>
         <p class="navbar-btn">
-          {{#if session.isSignedIn}}
-            Signed in as {{session.login}}
+          {{#if session.currentUser}}
+            Signed in as <strong>{{session.currentUser.username}}</strong>
             <button id='sign-out' {{action 'signOut'}} class="btn btn-default">Sign out</button>
           {{else}}
             {{#link-to 'sign-in' id='sign-in' class='btn btn-default'}}Sign in{{/link-to}}

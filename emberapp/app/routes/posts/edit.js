@@ -1,20 +1,7 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from '../../mixins/authenticated-route';
 
-export default Ember.Route.extend({
-  beforeModel(transition) {
-    if (!this.get('session.isSignedIn')) {
-      let signInController = this.controllerFor('sign-in', true);
-
-      if (!signInController) {
-        signInController = this.generateController('sign-in');
-      }
-
-      signInController.set('previousTransition', transition);
-
-      this.transitionTo('sign-in');
-    }
-  },
-
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model(params) {
     return this.store.findRecord('post', params.post_id);
   },

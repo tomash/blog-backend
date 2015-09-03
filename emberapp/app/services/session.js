@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   currentUser: false,
-  authToken: Ember.computed.alias('currentUser.authToken'),
+  authToken: Ember.computed.alias('currentUser.auth_token'),
   isSignedIn: Ember.computed.alias('currentUser'),
 
   init() {
@@ -26,8 +26,7 @@ export default Ember.Service.extend({
   },
 
   destroy() {
-    this.set('authToken', false);
     this.set('currentUser', false);
-    delete localStorage.authToken;
+    delete localStorage.currentUser;
   }
 });

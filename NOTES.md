@@ -109,7 +109,63 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
 
   This initializer will make `Authentication` service available as `auth` for all routes, components and controllers.
 
+* If you need to inject `DS.Store` somewhere, don't do it with `Ember.inject.service()` - this will throw
+  `Uncaught Error: Attempting to inject an unknown injection: service:store` at you.
+  You need to create an initializer, which needs to have `after: 'ember-data'` option set, like this:
+
+  ```js
+  export function initialize(container, application) {
+    application.inject('service:session', 'store', 'service:store');
+  }
+
+  export default {
+    name: 'inject-store-to-session',
+    initialize: initialize,
+    after: 'ember-data'
+  };
+  ```
+
+* In order to send relationships' data in accordance to [JSON API], setting `has_one`
+  in serializer is not enough. You also need to pass list of included resources
+  to `render` or `respond_with` call, like this:
+
+  ```ruby
+  respond_with @posts, include: ['comments']
+  ```
+
+* `DS.JSONAPISerializer` expects mutli-word member names to be separated by
+  dashes, which is not what we want, when using `Rails` and `active_model_serializers`.
+  There is a simple workaround for this, just create an `ApplicationSerializer`
+  that translates member names to be separated by underscores:
+
+  ```js
+  import DS from 'ember-data';
+
+  export default DS.JSONAPISerializer.extend({
+    /**
+      @method keyForAttribute
+      @param {String} key
+      @param {String} method
+      @return {String} normalized key
+      */
+    keyForAttribute: function (key) {
+      return Ember.String.underscore(key);
+    },
+
+    /**
+      @method keyForRelationship
+      @param {String} key
+      @param {String} typeClass
+      @param {String} method
+      @return {String} normalized key
+      */
+    keyForRelationship: function (key) {
+      return Ember.String.underscore(key);
+    },
+  });
+  ```
 
 [nvm]: https://github.com/creationix/nvm
 [active_model_serializers]: https://github.com/rails-api/active_model_serializers
 [ActiveModelAdapter]: https://github.com/ember-data/active-model-adapter
+[JSON API]: http://jsonapi.org/

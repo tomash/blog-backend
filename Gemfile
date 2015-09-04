@@ -31,7 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'responders'
-gem 'active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers',
+                                branch: 'master'
 gem 'jump_in'
 gem 'bcrypt'
 gem 'has_secure_token'

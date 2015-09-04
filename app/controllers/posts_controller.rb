@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :update, :destroy]
 
   respond_to :json
 
   def index
     @posts = Post.includes(:comments)
-    respond_with @posts
+    respond_with @posts, include: ['comments']
   end
 
   def show
-    respond_with @post
+    respond_with @post, include: ['comments']
   end
 
   def new
@@ -44,6 +44,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:data).require(:attributes).permit(:title, :body)
     end
 end

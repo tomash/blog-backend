@@ -27,8 +27,8 @@ export default Ember.Service.extend({
         password: password
       }
     }).done((response) => {
-      localStorage.currentUser = JSON.stringify(response.user);
-      this.pushCurrentUser(response.user);
+      localStorage.currentUser = JSON.stringify(response.data);
+      this.pushCurrentUser(response.data);
     });
   },
 

@@ -5,11 +5,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:comments)
-    respond_with @posts
+    respond_with @posts, include: ['comments']
   end
 
   def show
-    respond_with @post
+    respond_with @post, include: ['comments']
   end
 
   def new

@@ -125,7 +125,15 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
   };
   ```
 
+* In order to send relationships' data in accordance to [JSON API], setting `has_one`
+  in serializer is not enough. You also need to pass list of included resources
+  to `render` or `respond_with` call, like this:
+
+  ```ruby
+  respond_with @posts, include: ['comments']
+  ```
 
 [nvm]: https://github.com/creationix/nvm
 [active_model_serializers]: https://github.com/rails-api/active_model_serializers
 [ActiveModelAdapter]: https://github.com/ember-data/active-model-adapter
+[JSON API]: http://jsonapi.org/

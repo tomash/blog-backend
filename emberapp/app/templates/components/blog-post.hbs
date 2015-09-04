@@ -33,6 +33,9 @@
 {{#if commentingEnabled}}
   <div class="commenting">
     {{comments-list comments=comments updateComment='updateComment' destroyComment='destroyComment'}}
-    {{comment-form comment=comment action='createComment' class='col-md-6'}}
+
+    {{#if session.isSignedIn}}
+      {{comment-form comment=comment action='createComment' class='col-md-6'}}
+    {{/if}}
   </div>
 {{/if}}

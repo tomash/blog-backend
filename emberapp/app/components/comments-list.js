@@ -9,12 +9,13 @@ export default Ember.Component.extend({
   /*
    * Sort comments by createdAt in descending order
    */
-  orderedComments: Ember.computed.sort('filteredComments', function(commentA, commentB) {
-      let timeA = commentA.get('createdAt').getTime(),
-          timeB = commentB.get('createdAt').getTime();
-
-    return -Ember.compare(timeA, timeB);
-  }),
+  // orderedComments: Ember.computed.sort('filteredComments', function(commentA, commentB) {
+  //     let timeA = commentA.get('createdAt').getTime(),
+  //         timeB = commentB.get('createdAt').getTime();
+  //
+  //   return -Ember.compare(timeA, timeB);
+  // }),
+  orderedComments: Ember.computed.alias('filteredComments'),
 
   actions: {
     updateComment(comment) {

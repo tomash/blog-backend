@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy]
 
   respond_to :json
 
@@ -45,6 +45,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:body, :post_id)
+      params.require(:data).require(:attributes).permit(:body, :post_id)
     end
 end

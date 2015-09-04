@@ -109,6 +109,22 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
 
   This initializer will make `Authentication` service available as `auth` for all routes, components and controllers.
 
+* If you need to inject `DS.Store` somewhere, don't do it with `Ember.inject.service()` - this will throw
+  `Uncaught Error: Attempting to inject an unknown injection: service:store` at you.
+  You need to create an initializer, which needs to have `after: 'ember-data'` option set, like this:
+
+  ```js
+  export function initialize(container, application) {
+    application.inject('service:session', 'store', 'service:store');
+  }
+
+  export default {
+    name: 'inject-store-to-session',
+    initialize: initialize,
+    after: 'ember-data'
+  };
+  ```
+
 
 [nvm]: https://github.com/creationix/nvm
 [active_model_serializers]: https://github.com/rails-api/active_model_serializers

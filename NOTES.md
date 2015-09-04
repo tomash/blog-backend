@@ -133,6 +133,38 @@ This is kind of `TIL` article. Imperative sentences used because of brevity, ple
   respond_with @posts, include: ['comments']
   ```
 
+* `DS.JSONAPISerializer` expects mutli-word member names to be separated by
+  dashes, which is not what we want, when using `Rails` and `active_model_serializers`.
+  There is a simple workaround for this, just create an `ApplicationSerializer`
+  that translates member names to be separated by underscores:
+
+  ```js
+  import DS from 'ember-data';
+
+  export default DS.JSONAPISerializer.extend({
+    /**
+      @method keyForAttribute
+      @param {String} key
+      @param {String} method
+      @return {String} normalized key
+      */
+    keyForAttribute: function (key) {
+      return Ember.String.underscore(key);
+    },
+
+    /**
+      @method keyForRelationship
+      @param {String} key
+      @param {String} typeClass
+      @param {String} method
+      @return {String} normalized key
+      */
+    keyForRelationship: function (key) {
+      return Ember.String.underscore(key);
+    },
+  });
+  ```
+
 [nvm]: https://github.com/creationix/nvm
 [active_model_serializers]: https://github.com/rails-api/active_model_serializers
 [ActiveModelAdapter]: https://github.com/ember-data/active-model-adapter

@@ -14,7 +14,10 @@ export default Ember.Route.extend({
    * Creates new 'post' record and sets it in controller as 'newPost'
    */
   createAndSetPost() {
-    let newPost = this.store.createRecord('post', {});
+    let newPost = this.store.createRecord('post', {}),
+        currentUser = this.get('session.currentUser');
+
+    newPost.set('author', currentUser);
 
     this.controller.set('newPost', newPost);
   },

@@ -8,12 +8,13 @@ def lorem(count)
   'Lorem ipsum dolor sit amet. '*count
 end
 
-User.create! username: 'admin', password: 'password'
+admin = User.create! username: 'admin', password: 'password'
 
 count.times do |n|
   post = Post.create! \
     title: FFaker::HipsterIpsum.sentence,
     body: FFaker::BaconIpsum.paragraphs(rand(2..8)).join(' '),
+    author: admin,
     created_at: n.hours.ago
 
   rand(0..6).times do |n|

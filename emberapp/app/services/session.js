@@ -7,8 +7,15 @@ export default Ember.Service.extend({
 
   init() {
     if (localStorage.currentUser) {
-      this.set('currentUser', JSON.parse(localStorage.currentUser));
+      this.pushCurrentUser(JSON.parse(localStorage.currentUser));
     }
+  },
+
+  pushCurrentUser(userAttributes) {
+    let normalizedAttrs = this.store.normalize('user', userAttributes);
+    let userRecord = this.store.push(normalizedAttrs);
+
+    this.set('currentUser', userRecord);
   },
 
   create(username, password) {
@@ -20,16 +27,8 @@ export default Ember.Service.extend({
         password: password
       }
     }).done((response) => {
-      // this should be an instance of User model, but i have problems
-      // with injecting store to this service, hence this jsony user data ;(
-      //
-      // when injecting store service, like this:
-      // `store: Ember.inject.service('store'),`
-      //
-      // Ember complains with following error:
-      // `Uncaught Error: Attempting to inject an unknown injection: service:store`
-      this.set('currentUser', response.user);
       localStorage.currentUser = JSON.stringify(response.user);
+      this.pushCurrentUser(response.user);
     });
   },
 

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   currentUser: false,
-  authToken: Ember.computed.alias('currentUser.auth_token'),
+  authToken: Ember.computed.alias('currentUser.authToken'),
   isSignedIn: Ember.computed.alias('currentUser'),
 
   init() {
